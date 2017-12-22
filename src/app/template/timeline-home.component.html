@@ -161,9 +161,9 @@
     }
 
     .my-timeitem > .row > .my-visiable-div > .my-card-left-div {
-      transform: perspective(1000px) rotateY(0deg);
+      transform: perspective(1600px) rotateY(0deg);
       transform-style: preserve-3d;
-      transform-origin: 100% 0;
+      transform-origin: 100% 50%;
       z-index: 1000;
       -webkit-animation: timeitemanimation 1000ms;
       -o-animation: timeitemanimation 1000ms;
@@ -172,11 +172,11 @@
 
     @keyframes timeitemanimation {
       from {
-        transform: rotateY(-80deg);
+        transform: perspective(1000px) rotateY(-150deg);
         opacity: 0;
       }
       to {
-        transform: rotateY(0deg);
+        transform: perspective(1000px) rotateY(0deg);
         opacity: 1;
       }
     }
@@ -191,11 +191,11 @@
 
     @keyframes timeitemrightani {
       from {
-        transform: rotateY(80deg);
+        transform: perspective(1000px) rotateY(150deg);
         opacity: 0;
       }
       to {
-        transform: rotateY(0deg);
+        transform: perspective(1000px) rotateY(0deg);
         opacity: 1;
       }
     }
