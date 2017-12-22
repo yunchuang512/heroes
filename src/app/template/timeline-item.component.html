@@ -1,0 +1,177 @@
+<style>
+  .my-card-angle-right {
+    display: block;
+    height: 20px;
+    width: 20px;
+    float: left;
+    position: relative;
+    left: 10px;
+    top: 20px;
+    transform: rotate(45deg);
+    z-index: 100;
+    background-color: #F3E5F5;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2);
+
+  }
+
+  .my-card-angle-left {
+    display: block;
+    height: 20px;
+    width: 20px;
+    float: right;
+    position: relative;
+    right: 10px;
+    top: 20px;
+    transform: rotate(45deg);
+    z-index: 100;
+    background-color: #F3E5F5;
+    box-shadow: 0 -3px 1px -2px rgba(0, 0, 0, .2);
+
+  }
+
+  .my-card-image-left-div {
+    float: right;
+    position: relative;
+    right: -27px;
+  }
+
+  .my-card-content-left-div {
+    right: -30px;
+    position: relative
+  }
+
+  .my-card-left-div {
+    border-right: solid 4px #088ef0;
+    padding: 20px 0
+  }
+
+  .my-card-right-div {
+    border-left: solid 4px #088ef0;
+    padding: 20px 0
+  }
+
+  .my-left-div {
+    position: relative;
+    right: -2px;
+    width: 100%;
+  }
+
+  .my-div-right {
+    position: relative;
+    left: -2px;
+    width: 100%;
+  }
+
+  .my-card-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid #FFFFFF;
+    box-shadow: 1px 1px 2px 2px #DDDDDD;
+  }
+
+  @media (max-width: 991px) {
+    .my-card-angle-left {
+      display: block;
+      height: 20px;
+      width: 20px;
+      float: left;
+      position: relative;
+      left: 10px;
+      top: 20px;
+      transform: rotate(45deg);
+      z-index: 100;
+      background-color: #F3E5F5;
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2);
+    }
+
+    .my-card-image-left-div {
+      float: left;
+      position: relative;
+      left: -27px;
+    }
+
+    .my-card-content-left-div {
+      left: -30px;
+      position: relative
+    }
+
+    .my-card-left-div {
+      border-left: solid 4px #088ef0;
+      border-right: none;
+      padding: 20px 0
+    }
+
+    .my-left-div {
+      position: relative;
+      left: -2px;
+      width: 100%;
+    }
+
+    .my-card-none-div {
+      border-left: solid 4px #088ef0;
+    }
+  }
+  #maincontainer {
+    transform: perspective(1500px) rotateY(0deg);
+    transform-style: preserve-3d;
+  }
+
+  .my-div-right>.my-card-right-div{
+    transform: rotateY(45deg);
+    transform-origin: 0 50%;
+  }
+  .my-div-right>.my-card-right-div:hover{
+    transform: rotateY(-45deg);
+  }
+</style>
+<div id="maincontainer" style="padding-left: 30px;">
+  <div *ngIf="timeitem.position==0" class="my-div-right row" style="">
+    <div class="my-card-none-div col-lg-6 col-md-6 col-sm-0"></div>
+    <div class="my-card-right-div col-lg-6 col-md-6 col-sm-12">
+      <div style="float: left;position: relative;left: -27px;">
+        <img class="my-card-image" src="../../assets/img/background1.jpg">
+      </div>
+      <div style="left: -30px;position: relative">
+        <div class="my-card-angle-right" style=""></div>
+        <div class="mdui-card mdui-color-purple-50">
+          <div class="mdui-card-header">
+            <div class="mdui-card-header-title">{{timeitem.title}}</div>
+            <div class="mdui-card-header-subtitle">Subtitle</div>
+          </div>
+          <div class="mdui-card-content">
+            {{timeitem.content}}
+          </div>
+          <div class="mdui-card-actions">
+            <button class="mdui-btn mdui-ripple">action 1</button>
+            <button class="mdui-btn mdui-ripple">action 2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="timeitem.position==1" class="my-left-div row">
+    <div class="my-card-left-div col-lg-6 col-md-6 col-sm-12">
+      <div class="my-card-image-left-div">
+        <img class="my-card-image" src="../../assets/img/background1.jpg">
+      </div>
+      <div class="my-card-content-left-div" style="">
+        <div class="my-card-angle-left" style=""></div>
+        <div class="mdui-card mdui-color-purple-50" style="overflow-y: auto !important;">
+          <div class="mdui-card-header">
+            <div class="mdui-card-header-title">{{timeitem.title}}</div>
+            <div class="mdui-card-header-subtitle">Subtitle</div>
+          </div>
+          <div class="mdui-card-content">
+            {{timeitem.content}}
+          </div>
+          <div class="mdui-card-actions">
+            <button class="mdui-btn mdui-ripple">action 1</button>
+            <button class="mdui-btn mdui-ripple">action 2</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="my-card-none-div col-lg-6 col-md-6 col-sm-0"></div>
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<style>
+  .mdui-list-item {
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .my-grid-heroimagediv {
+    height: 240px;
+    overflow: hidden;
+  }
+
+  .my-grid-heroimagediv > img {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+  }
+
+  .my-grid-heroimagediv > img:hover {
+    margin-top: -15%;
+    margin-left: -15%;
+    width: 130%;
+    height: 130%;
+  }
+
+  .my-card-hero {
+    -webkit-animation: herolistanimation 500ms;
+    -o-animation: herolistanimation 500ms;
+    animation: herolistanimation 500ms;
+  }
+
+  @keyframes herolistanimation {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>
+<div style="padding-top: 20px;">
+  <div class="mdui-btn-group" style="float: right;margin-right: 20px;">
+    <button type="button" class="mdui-btn" [class.mdui-btn-active]="viewtype==1"
+            (click)="changeview(1)">
+      <i class="fa fa-th mdui-text-color-purple"></i>
+    </button>
+    <button type="button" class="mdui-btn mdui-text-color-purple" [class.mdui-btn-active]="viewtype==2"
+            (click)="changeview(2)">
+      <i class="fa fa-list"></i>
+    </button>
+  </div>
+  <div style="margin-top: 50px;">
+    <ul *ngIf="viewtype==2" class="mdui-list">
+      <li *ngFor="let hero of heroes" (click)="onSelect(hero)" class="mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-avatar"><img src="../../assets/img/{{hero.image}}"/></div>
+        <div class="mdui-list-item-content">
+          <div class="mdui-list-item-title">{{hero.name}}</div>
+          <div class="mdui-list-item-text mdui-list-item-one-line">
+            {{hero.describe}}
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div *ngIf="viewtype==1">
+      <div *ngFor="let hero of heroes" class="col-lg-3 col-md-4 col-sm-6">
+        <div class="my-card-hero mdui-card mdui-hoverable" style="margin: 10px;">
+          <div class="mdui-card-media">
+            <div class="my-grid-heroimagediv">
+              <img src="../../assets/img/{{hero.image}}">
+            </div>
+            <div class="mdui-card-media-covered">
+              <div class="mdui-card-primary" style="padding: 10px;">
+                <div class="mdui-card-primary-title">{{hero.name}}</div>
+                <div class="mdui-card-primary-subtitle mdui-list-item-two-line">{{hero.describe}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="mdui-card-actions">
+            <button class="mdui-btn mdui-ripple" [routerLink]="['/detail']"
+                    [queryParams]="{id:hero.id,viewtype:viewtype}">Detail
+            </button>
+            <i class="mdui-icon mdui-text-color-red mdui-float-right fa fa-heart"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

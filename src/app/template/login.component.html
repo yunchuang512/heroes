@@ -1,0 +1,6 @@
+<h2>LOGIN</h2>
+<p>{{message}}</p>
+<p>
+  <button class="mdui-btn mdui-color-purple" (click)="login();" *ngIf="!authService.isLoggedIn">login</button>
+  <button class="mdui-btn mdui-color-pink" (click)="logout();" *ngIf="authService.isLoggedIn">logout</button>
+</p>

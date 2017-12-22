@@ -1,0 +1,13 @@
+<div *ngIf="crisis">
+  <div class="mdui-textfield">
+    <label class="mdui-textfield-label">Crisis Name</label>
+    <input [(ngModel)]="editName" class="mdui-textfield-input" type="text"/>
+  </div>
+  <div class="mdui-textfield">
+    <label class="mdui-textfield-label">Crisis Describe</label>
+    <input [(ngModel)]="editDescribe" class="mdui-textfield-input" type="text"/>
+  </div>
+</div>
+<button class="mdui-btn mdui-color-pink" (click)="goBack()">Back</button>
+<button class="mdui-btn mdui-color-pink" (click)="save()">Save</button>
+<button class="mdui-btn mdui-color-pink" (click)="cancel()">cancel</button>

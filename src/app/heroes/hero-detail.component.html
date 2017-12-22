@@ -1,0 +1,28 @@
+<div *ngIf="hero" style="padding-top: 10px;">
+  <h2>{{hero.name}}</h2>
+  <div class="mdui-textfield">
+    <label class="mdui-textfield-label">Name</label>
+    <input [(ngModel)]="hero.name" class="mdui-textfield-input" type="text"/>
+  </div>
+  <div class="mdui-textfield">
+    <label class="mdui-textfield-label">Describe</label>
+    <textarea [(ngModel)]="hero.describe" class="mdui-textfield-input" type="text" rows="3"></textarea>
+  </div>
+  <div class="mdui-card" style="width: 300px;">
+    <div class="mdui-card-media">
+      <img src="../../assets/img/{{hero.image}}" style="height: 300px;width: 100%;"/>
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-subtitle">{{hero.name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="mdui-card-actions">
+      <button class="mdui-btn mdui-ripple mdui-float-right">change</button>
+    </div>
+  </div>
+  <button class="mdui-btn mdui-color-blue" style="margin-top: 20px;" (click)="goBack()">
+    Back
+    <i class="fa fa-reply"></i>
+  </button>
+</div>

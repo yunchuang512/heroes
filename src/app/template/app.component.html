@@ -1,0 +1,137 @@
+<style>
+  nav {
+    padding: 1rem;
+  }
+
+  #toolbarid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 1px 10px 1px #868686;
+    z-index: 100;
+  }
+</style>
+<div id="toolbarid" class="mdui-toolbar mdui-color-blue">
+  <a class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons" (click)="menuclick()">menu</i></a>
+  <span class="mdui-typo-title">Heroes</span>
+  <div class="mdui-toolbar-spacer"></div>
+  <div class="mdui-textfield mdui-textfield-expandable mdui-float-right" style="max-width: 400px;">
+    <button class="mdui-textfield-icon mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></button>
+    <input class="mdui-textfield-input" type="text" placeholder="Search"/>
+    <button class="mdui-textfield-close mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">close</i></button>
+  </div>
+  <a class="mdui-btn mdui-btn-icon" [routerLink]="[{ outlets: { popup: ['compose'] } }]">
+    <i class="mdui-icon material-icons fa fa-telegram" style="margin-top: -3px;"></i>
+  </a>
+  <a class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#example-2',covered:false}"><i
+    class="mdui-icon material-icons">more_vert</i></a>
+  <ul class="mdui-menu" id="example-2">
+    <li class="mdui-menu-item">
+      <a href="javascript:;" class="mdui-ripple">
+        <i class="mdui-menu-item-icon mdui-icon material-icons">remove_red_eye</i>Preview
+      </a>
+    </li>
+    <li class="mdui-menu-item">
+      <a href="javascript:;" class="mdui-ripple">
+        <i class="mdui-menu-item-icon mdui-icon material-icons">file_download</i>Download
+      </a>
+    </li>
+    <li class="mdui-divider"></li>
+    <li class="mdui-menu-item">
+      <a href="javascript:;" class="mdui-ripple">
+        <i class="mdui-menu-item-icon mdui-icon material-icons">delete</i>Remove
+      </a>
+    </li>
+    <li class="mdui-menu-item">
+      <a href="javascript:;" class="mdui-ripple">
+        <i class="mdui-menu-item-icon"></i>Empty
+      </a>
+    </li>
+  </ul>
+</div>
+<div class="mdui-drawer-body-left">
+  <div class="mdui-drawer mdui-drawer-close" id="drawer" style="margin-top: 56px;">
+    <ul class="mdui-list" mdui-collapse="{accordion: true}">
+
+      <li class="mdui-list-item mdui-ripple" [routerLink]="['/apphome']">
+        <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+        <div class="mdui-list-item-content">Home</div>
+      </li>
+
+      <li class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons fa fa-flag"></i>
+          <div class="mdui-list-item-content">Hero</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          <li class="mdui-list-item mdui-ripple" [routerLink]="['/heroes']">Heroes</li>
+          <li class="mdui-list-item mdui-ripple" [routerLink]="['/crisis-center']">Crisis Center</li>
+          <li class="mdui-list-item mdui-ripple" routerLink="/admin">Admin</li>
+        </ul>
+      </li>
+
+      <li class="mdui-list-item mdui-ripple" [routerLink]="['/timeline']">
+        <i class="mdui-list-item-icon mdui-icon material-icons">dashboard</i>
+        <div class="mdui-list-item-content">Timeline</div>
+      </li>
+
+      <li class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons">people</i>
+          <div class="mdui-list-item-content">Audience</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          <li class="mdui-list-item mdui-ripple">Overview</li>
+          <li class="mdui-list-item mdui-ripple">Language</li>
+          <li class="mdui-list-item mdui-ripple">Location</li>
+          <li class="mdui-list-item mdui-ripple">New vs Returning</li>
+        </ul>
+      </li>
+
+      <li class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons">device_hub</i>
+          <div class="mdui-list-item-content">Acquisition</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          <li class="mdui-list-item mdui-ripple">Overview</li>
+          <li class="mdui-list-item mdui-ripple">All Traffic</li>
+          <li class="mdui-list-item mdui-ripple">Direct Traffic</li>
+          <li class="mdui-list-item mdui-ripple">Search Overview</li>
+        </ul>
+      </li>
+
+      <li class="mdui-collapse-item">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+          <i class="mdui-list-item-icon mdui-icon material-icons">touch_app</i>
+          <div class="mdui-list-item-content">Behavior</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+        </div>
+        <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+          <li class="mdui-list-item mdui-ripple">Overview</li>
+          <li class="mdui-list-item mdui-ripple">All Pages</li>
+          <li class="mdui-list-item mdui-ripple">Landing Pages</li>
+          <li class="mdui-list-item mdui-ripple">Exit Pages</li>
+        </ul>
+      </li>
+
+      <li class="mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons">shopping_cart</i>
+        <div class="mdui-list-item-content">Ecommerce</div>
+      </li>
+
+    </ul>
+  </div>
+  <div class="mdui-container" style="margin-top: 56px;">
+
+  </div>
+</div>
+<div class="mdui-container">
+  <router-outlet></router-outlet>
+  <router-outlet name="popup"></router-outlet>
+</div>
+
+

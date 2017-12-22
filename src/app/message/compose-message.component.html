@@ -1,0 +1,80 @@
+<style>
+  :host {
+    position: fixed;
+    right: 30px;
+    bottom: 20px;
+    -webkit-animation: messageanimation 400ms;
+    -o-animation: messageanimation 400ms;
+    animation: messageanimation 400ms;
+  }
+
+  @keyframes messageanimation {
+    from {
+      bottom: -300px;
+    }
+    to {
+      bottom: 20px;
+    }
+  }
+
+  #container {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 2px;
+    width: 300px;
+  }
+
+  #closebutton {
+    font-size: 18px;
+    padding: 5px;
+    position: relative;
+    top: -3px;
+    color: #aaaaaa;
+    cursor: pointer;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+  }
+
+  #closebutton:hover {
+    transform: rotateZ(90deg);
+    transform-origin: 50% 50%;
+    color: #e91e63
+  }
+
+  #sendbutton {
+    font-size: 20px;
+    position: relative;
+    top: -45px;
+    left: 0;
+    padding: 10px;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+  }
+
+  #sendbutton:hover {
+    left: 10px;
+  }
+</style>
+<div id="container" class="mdui-shadow-5">
+  <div class="mdui-typo-subtitle">
+    Contact Crisis Center
+    <a class=" mdui-float-right" (click)="cancel()">
+      <i id="closebutton" class="fa fa-close"></i>
+    </a>
+  </div>
+  <div *ngIf="details">
+    {{ details }}
+  </div>
+  <div class="mdui-textfield mdui-textfield-floating-label">
+    <label class="mdui-textfield-label">Message</label>
+    <textarea [(ngModel)]="message" class="mdui-textfield-input" [disabled]="sending"></textarea>
+  </div>
+  <a id="sendbutton" class="mdui-text-color-purple mdui-float-right" (click)="send()">
+    <i class="fa fa-paper-plane"></i>
+  </a>
+
+</div>

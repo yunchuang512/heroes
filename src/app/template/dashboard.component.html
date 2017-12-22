@@ -1,0 +1,19 @@
+<div class="grid grid-pad">
+  <div *ngFor="let hero of heroes" class="col-lg-3 col-md-4 col-sm-6">
+    <div class="mdui-card mdui-hoverable" style="margin: 10px;">
+      <div class="mdui-card-media">
+        <img src="../../assets/img/{{hero.image}}" style="height: 240px;">
+        <div class="mdui-card-media-covered">
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">{{hero.name}}</div>
+            <div class="mdui-card-primary-subtitle mdui-list-item-two-line">{{hero.describe}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="mdui-card-actions">
+        <button class="mdui-btn mdui-ripple" [routerLink]="['/detail',hero.id]">Detail</button>
+        <i class="mdui-icon mdui-text-color-red mdui-float-right fa fa-heart"></i>
+      </div>
+    </div>
+  </div>
+</div>

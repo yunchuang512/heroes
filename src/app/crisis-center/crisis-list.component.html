@@ -1,0 +1,13 @@
+<style>
+  .mdui-list-item {
+    border-bottom: 1px solid #eeeeee;
+  }
+</style>
+<ul class="mdui-list">
+  <li *ngFor="let crisis of crises" class="mdui-list-item mdui-ripple" (click)="onSelect(crisis)">
+    <div class="mdui-list-item-content">
+      <div class="mdui-list-item-title">{{crisis.name}}</div>
+      <div class="mdui-list-item-text mdui-list-item-one-line">{{crisis.describe}}</div>
+    </div>
+  </li>
+</ul>
